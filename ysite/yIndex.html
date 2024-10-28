@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<style>
+@keyframes pulse{
+0% { width:50%; height:50%;}
+50% { width:53%; height:53%;}
+100% { width:50%; height:50%;}
+}
+
+
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+ margin-top: 60px;
+ margin-bottom: auto;
+ width: 50%;
+ height: 50%;
+ animation-name: pulse;
+ animation-duration: 4s;
+ animation-iteration-count: infinite;
+}
+img:hover
+</style>
+
+<body style="background:url('darkpsycholong.png');background-repeat: no-repeat; background-size:175%; background-position: center;"> 
+<img id='brain' src='brainCLOSE.png' usemap='#door' >
+	<map name='door'>
+		<area shape="rect" coords= "300,60,500,400" href='yHome.html'
+		onmouseover='document.getElementById("brain").src = "brainOPEN.png";'
+		onmouseout='document.getElementById("brain").src = "brainCLOSE.png";'	>
+	</map>
+</body>
+
+</html>
