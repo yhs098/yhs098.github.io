@@ -6,7 +6,7 @@
 #HContainer {
 margin-top:0px;
 margin-left:0px;
-width:1500px
+width:1500px;
 height:164px;
 display:grid;
 align-items:end;
@@ -21,7 +21,7 @@ left:0px;
 top:0px;
 width:1500px;
 height:145px;
-background: url(doodleraz.png), #095953;
+background: url(images/doodleraz.png), #095953;
 background-repeat: no-repeat, repeat;
 background-position: right, left;
 background-size: 35%, 100%;
@@ -47,7 +47,7 @@ top: 164px;
 padding: 10px;
 width: 800px;
 height: 500px;
-background-image: url(darkpsycholong.png);
+background-image: url(images/darkpsycholong.png);
 color: pink;
 }
 .body #hi {
@@ -91,7 +91,7 @@ top: 164px;
 padding: 10px;
 width: 280px;
 height: 500px;
-background: url(stew.png) 25%;
+background: url(images/stew.png) 25%;
 color: black;
 }
 .side button {
@@ -179,7 +179,7 @@ font-family: 'VCR OSD Mono';
 
 <head id='HContainer'>
 <title>WHAT</title>
-  <link rel='icon' type='image/x-icon' href='Self.png'>
+  <link rel='icon' type='image/x-icon' href='images/Self.png'>
 <h1 id='funny' >BIRTHDAY</h1>
 <div id='HContainer'>
 <div class='header'>
@@ -203,15 +203,15 @@ font-family: 'VCR OSD Mono';
 </div>
 
 <div class="body"> 
-<div id='hi'>
+<div class='hello' id='hi'>
 <h1>Hey!</h1>
-<p>so ill probably update this thing in like a week i had to rush this out pretty quickly for reasons unknown but you know yeah! anyway the thing will hopefully get better and better with more silly fun haha stuff added to it over time but for the mean time enjoy this ugly broken website!</p>
-<p>ps: if you opened this site from a phone or like any browser that isnt chrome im so sorry</p>
+<p>first ever update!!! its just for fish (and moving the images to a folder waowww really cool) so like yeah you should try it out i worked very hard on it!!!!!!!! v1.1.0 baby never stopping always improving i love html5 and only html5.</p>
+<p>ps: if you opened this site from a phone or like any browser that isnt chrome im so sorry i will get on it when i figure out how trust me.</p>
 <button style='display:block' onclick='playAudio(); this.style.display="none"; document.getElementById("heyy").style.display="inline"'>pleasee press it its worth it</button>
 <p id='heyy' style='display:none;'>also also if you get tired of this lovley tune you can always mute the tab i wont get mad :)</p>
 </div>
 
-<div id='faq'>
+<div class='hello' id='faq'>
 <h1>frequently asked questions?!</h1>
 <p>who is yhs?</p>
 <p>in math: my solation, in history: my king, in art: my muse, in science: my oxigen, in geogrphy: my world.</p>
@@ -225,16 +225,30 @@ font-family: 'VCR OSD Mono';
 <p>things.</p>
 </div>
 
-<div id='fish'>
+<div class='hello' id='fish'>
+<div id="fishstart">
 <h1>Press the button to catch some virtual fish!</h1>
+
 <button style='display:inline-block;' onclick= 'fishing()'>fish!!!</button>
 <button style='display:inline-block;' onclick= 'sell()'>sell?</button>
-<p id='money'>money: </p>
-<p id='fishcounter'> </p>
-
+<button style='display:inline-block;' onclick= 'funnytab(1)'>buy!?</button>
+<p id='money' style="margin-left: 800px;">money: </p>
+<p id='fishcounter' Style='margin-left: 800px;'> </p>
+<img id="man" src="images/man.png" style="position: absolute; width: 200px; height: inherit; top: 200px;">
+</div>
+<div style="display: none;" id="fishshop">
+<h1>what the fish do you want</h1>
+<button id="1" style="display: inline; width: 150px; height: inherit;" onclick="buy(1)">funny hat   price: $100</button>
+<button id="2" style="display: inline; width: 150px; height: inherit;" onclick="buy(2)">cool chair  price: $500</button>
+<button id="3" style="display: inline; width: 150px; height: inherit;" onclick="buy(3)">paris trip  price: $1500</button>
+<button id="4" style="display: inline; width: 150px; height: inherit;" onclick="buy(4)">vegas trip  price: $3812</button>
+<button id="5" style="display: inline; width: 150px; height: inherit" onclick="buy(5)">a way out   price: $10000</button>
+<button style="position: absolute; bottom: 0; right: 0;" onclick="funnytab(2)">back to the pond eh</button>
+<p id='shopmoney' style="position: absolute; bottom: 0; left: 0;"></p>
+</div>
 </div>
 
-<div id='suggest'>
+<div class='hello' id='suggest'>
 <form action="/action_page.php">
   <label style="font-family: 'VCR OSD Mono';" for="email">Your email:</label><br>
   <input type="text" id="email" name="email" ><br>
@@ -245,7 +259,7 @@ font-family: 'VCR OSD Mono';
 </div>
 
 
-<div id='links'>
+<div class='hello' id='links'>
 <h1>The many faces of yhs</h1>
 <p>if for some reason you dont know where to find me but know about this website</p>
 <div class='container'>
@@ -282,41 +296,32 @@ font-family: 'VCR OSD Mono';
 
 </body>
 <script>
+function hide () {
+const tab = document.getElementsByClassName('hello');
+for (let i = 0; i < tab.length; i++){
+tab[i].style.display = 'none';
+}
+}
 function hi(){
-document.getElementById('faq').style.display='none';
-document.getElementById('fish').style.display='none';
+hide();
 document.getElementById('hi').style.display='inline';
-document.getElementById('suggest').style.display = 'none';
-document.getElementById('links').style.display = 'none';
 }
 
 function faq(){
+hide();
 document.getElementById('faq').style.display='inline';
-document.getElementById('fish').style.display='none';
-document.getElementById('hi').style.display='none';
-document.getElementById('suggest').style.display = 'none';
-document.getElementById('links').style.display = 'none';
 }
 
 function fish(){
-document.getElementById('faq').style.display = 'none';
+hide();
 document.getElementById('fish').style.display = 'inline';
-document.getElementById('hi').style.display = 'none';
-document.getElementById('suggest').style.display = 'none';
-document.getElementById('links').style.display = 'none';
 }
 function suggest(){
-document.getElementById('faq').style.display = 'none';
-document.getElementById('fish').style.display = 'none';
-document.getElementById('hi').style.display = 'none';
+hide();
 document.getElementById('suggest').style.display = 'inline';
-document.getElementById('links').style.display = 'none';
 }
 function link(){
-document.getElementById('faq').style.display = 'none';
-document.getElementById('fish').style.display = 'none';
-document.getElementById('hi').style.display = 'none';
-document.getElementById('suggest').style.display = 'none';
+hide();
 document.getElementById('links').style.display = 'inline';
 }
 </script>
@@ -326,15 +331,95 @@ function getRandomInt(max) {
   return Math.floor(Math.random() * max);
 }
 var fishs= 0;
+var cfishs=0;
 var money= 0;
+var moneyspent = 0;
 function fishing(){
-fishs = fishs + getRandomInt(5);
-document.getElementById('fishcounter').innerHTML='you now have '+fishs+' total fish!!! how cool';
+cfishs = cfishs + getRandomInt(5);
+document.getElementById('fishcounter').innerHTML='Fish: '+cfishs;
 }
 function sell(){
-money = fishs *5;
+  fishs= fishs + cfishs;
+  cfishs=0;
+money = (fishs *5)-moneyspent;
 document.getElementById('money').innerHTML='money: $'+ money;
+document.getElementById('fishcounter').innerHTML='Fish: '+cfishs;
 }
+function funnytab(x){
+switch (x){
+  case 1:
+     document.getElementById('fishstart').style.display='none';
+     document.getElementById('fishshop').style.display='inline';
+     document.getElementById('shopmoney').innerHTML = 'money: $'+ money;
+     break;
+  case 2:
+  document.getElementById('fishstart').style.display='inline';
+  document.getElementById('fishshop').style.display='none';
+  break;
+
+}
+}
+function buy(y){
+switch(y){
+  case 1:
+    if (money>=100){
+      document.getElementById('man').src = 'images/man (1).png';
+      document.getElementById('1').style.display = 'none';
+      moneyspent= moneyspent+100;
+      money= (fishs *5)-moneyspent;
+      document.getElementById('money').innerHTML='money: $'+ money;
+      document.getElementById('shopmoney').innerHTML = 'money: $'+ money;
+      break;
+    }else{
+    break;}
+  case 2: 
+  if (money>=500){
+      document.getElementById('man').src = 'images/man (2).png';
+      document.getElementById('2').style.display = 'none';
+      moneyspent= moneyspent+500;
+      money= (fishs *5)-moneyspent;
+      document.getElementById('money').innerHTML='money: $'+ money;
+      document.getElementById('shopmoney').innerHTML = 'money: $'+ money;
+      break;
+    }else{
+    break;}
+  case 3:
+  if (money>=1500){
+      document.getElementById('man').src = 'images/man (3).png';
+      document.getElementById('3').style.display = 'none';
+      moneyspent= moneyspent+1500;
+      money= (fishs *5)-moneyspent;
+      document.getElementById('money').innerHTML='money: $'+ money;
+      document.getElementById('shopmoney').innerHTML = 'money: $'+ money;
+      break;
+    }else{
+    break;}
+  case 4:
+  if (money>=3812){
+      document.getElementById('man').src = 'images/man (4).png';
+      document.getElementById('4').style.display = 'none';
+      moneyspent= moneyspent+3812;
+      money= (fishs *5)-moneyspent;
+      document.getElementById('money').innerHTML='money: $'+ money;
+      document.getElementById('shopmoney').innerHTML = 'money: $'+ money;
+      break;
+    }else{
+    break;}
+  case 5:
+  if (money>=10000){
+      document.getElementById('man').src = 'images/man (5).png';
+      document.getElementById('5').style.display = 'none';
+      moneyspent= moneyspent+10000;
+      money= (fishs *5)-moneyspent;
+      document.getElementById('money').innerHTML='money: $'+ money;
+      document.getElementById('shopmoney').innerHTML = 'money: $'+ money;
+
+      break;
+    }else{
+    break;}    
+}
+}
+
 </script>
 
 <script>
@@ -366,18 +451,18 @@ function playAudio(){
 var d = new Date();
 if (d.getMonth() == 9){
 if (d.getDate() == 28){
-var aud = new Audio('FBD.mp3');
+var aud = new Audio('images/FBD.mp3');
 aud.loop = true;
 aud.volume=0.2;
 aud.play();
 basic();
  document.getElementById('funny').style.display='block'; 
-}else {var aud = new Audio('psycho.mp3');
+}else {var aud = new Audio('images/psycho.mp3');
 aud.loop = true;
 aud.volume=0.2;
 aud.play();}
 }else {
-var aud = new Audio('psycho.mp3');
+var aud = new Audio('images/psycho.mp3');
 aud.loop = true;
 aud.volume=0.2;
 aud.play();
